@@ -27,7 +27,8 @@ INC = $(patsubst %, $(IFLAG)%, $(_IDIR))
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = 
+#-Wall -Wextra -Werror
 
 .PHONY: all clean fclean re
 
@@ -36,7 +37,7 @@ all: $(NAME)
 
 
 $(NAME): $(OBJ) $(OBJ2)
-	$(CC) $(FLAGS) $(INC) $(OBJ)  $(EXLIB) -o $(NAME) -lSDL2main -lSDL
+	$(CC) $(FLAGS) $(INC) $(OBJ)  $(EXLIB) -o $(NAME) -lSDL2 -lSDL2_image -lvulkan
 
 $(ODIR)%.o : $(SDIR)%.c 
 	$(CC) $(FLAGS) $(INC) -c  $< -o $@
